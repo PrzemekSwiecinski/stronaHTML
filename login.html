@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+	<title>CarHunters</title>
+	<link rel="icon" href="logo.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+        <h1>CarHunters</h1>
+        <h2>KOMIS SAMOCHODOWY</h2>
+		<nav>
+			<ul>
+				<li><a href="komis.html">Strona główna</a></li>
+				<li><a href="sprzedaj.html">Sprzedaj nam swój samochód</a></li>
+				<li><a href="kontakt.html">Kontakt</a></li>
+				<li><a href="onas.html">O nas</a></li>
+				<li class="login"><a href="login.html">Logowanie</a></li>
+				<li><a href="usuwanie.html">Usuwanie ogłoszeń</a></li>
+				<li><a href="dodawanie.html">Dodawanie ogłoszeń</a></li>
+			</ul>
+		</nav>
+	</header>
+    <main>
+		<h3>Logowanie administratora</h3>
+        <form action="login.php" method="POST">
+            <label for="username">Nazwa użytkownika:</label><br>
+            <input type="text" id="username" name="username"><br>
+        
+            <label for="password">Hasło:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+        
+            <input type="submit" value="Zaloguj się">
+        </form>
+    </main>
+    
+    <footer>
+        <p>CarHunters &copy; 2023</p>
+    </footer>
+</body>
+</html> 

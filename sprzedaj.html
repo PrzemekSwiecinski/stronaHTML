@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+    <head>
+        <title>CarHunters</title>
+        <link rel="icon" href="logo.png">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+<body>
+	<header>
+        <h1>CarHunters</h1>
+        <h2>KOMIS SAMOCHODOWY</h2>
+		<nav>
+			<ul>
+				<li><a href="komis.html">Strona główna</a></li>
+				<li><a href="sprzedaj.html">Sprzedaj nam swój samochód</a></li>
+				<li><a href="kontakt.html">Kontakt</a></li>
+				<li><a href="onas.html">O nas</a></li>
+				<li class="login"><a href="login.html">Logowanie</a></li>
+                <li><a href="usuwanie.html">Usuwanie ogłoszeń</a></li>
+				<li><a href="dodawanie.html">Dodawanie ogłoszeń</a></li>
+			</ul>
+		</nav>
+	</header>
+    <main>
+        <h3>Sprzedaj nam samochód</h3>
+        <form>
+            <label for="brand">Marka:</label>
+            <input type="text" id="brand" name="brand" required>
+            
+            <label for="model">Model:</label>
+            <input type="text" id="model" name="model" required>
+            
+            <label for="production-date">Data produkcji:</label>
+            <input type="text" id="production-date" name="production-date" required>
+            
+            <label for="owner-since">Data pierwszej rejestracji u ciebie:</label>
+            <input type="date" id="owner-since" name="owner-since" required>
+            
+            <label for="accident">Czy samochód był wypadkowy?</label>
+            <select id="accident" name="accident">
+                <option value="tak">Tak</option>
+                <option value="nie">Nie</option>
+            </select>
+
+            <label for="phone">Twój numer telefonu:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="email">Twój email:</label>
+            <input type="text" id="email" name="email" required>
+            
+            <div id="thankyou" hidden>
+                Dziękujemy za kontakt. Odezwiemy się.
+            </div>
+
+            <div class="form-buttons">
+                <input type="reset" value="Resetuj">
+                <input type="submit" value="Wyślij">
+            </div>
+        </form>
+    </main>
+    
+    <footer>
+        <p>CarHunters &copy; 2023</p>
+    </footer>
+
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const thankyouMessage = document.getElementById('thankyou');
+          thankyouMessage.style.display = 'block';
+        });
+    </script>
+</body>
+</html> 
