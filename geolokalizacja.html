@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moja Lokalizacja</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0;
+            text-align: center; 
+            background-color: #f0f0f0;
+        }
+        div {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Współrzędne</h1>
+        <p id="wspolrzedne">Pobierz lokalizacje</p>
+        <button onclick="getLocation()">Pobierz lokalizację</button>
+    </div>
+
+    <script>
+        const p_wspolrzedne = document.getElementById("wspolrzedne");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                p_wspolrzedne.innerHTML = "Pobieranie...";
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else { 
+                p_wspolrzedne.innerHTML = "Twoja przeglądarka nie wspiera geolokalizacji.";
+            }
+        }
+
+        function showPosition(position) {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+            p_wspolrzedne.innerHTML = "Szerokość geograficzna (Latitude): " + lat.toFixed(6) + 
+                                      "<br>Długość geograficzna (Longitude): " + lon.toFixed(6);
+        }
+        
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    p_wspolrzedne.innerHTML = "Odmówiono dostępu do lokalizacji."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    p_wspolrzedne.innerHTML = "Informacje o lokalizacji są niedostępne."
+                    break;
+                case error.TIMEOUT:
+                    p_wspolrzedne.innerHTML = "Przekroczono czas oczekiwania na lokalizację."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    p_wspolrzedne.innerHTML = "Wystąpił nieznany błąd."
+                    break;
+            }
+        }
+    </script>
+
+</body>
+</html>
